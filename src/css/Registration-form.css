@@ -1,0 +1,60 @@
+.registration-form-bacground{
+    background-color: #e7e5e5a4;
+    width: 1920px;
+    height: 741px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-form__container{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.registration-form__content{
+    padding: 50px;
+}
+
+.registration-form__title{
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 40px;
+
+}
+
+.registration-form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.registration-form__input{
+    padding: 15px 15px;
+    width: 600px;
+    border-radius: 5px;
+    border: none;
+    background-color: #e7e5e5a4;
+    border: 1px solid #b9b9b9a4;
+}
+
+.registration-form__button-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration-form__sign-in,
+.registration-form__sign-up{
+    padding: 15px 60px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #b9b9b9a4;
+    font-weight: 500;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.registration-form__sign-up{
+    background-color: #3FCF5E;
+    color: white;
+}

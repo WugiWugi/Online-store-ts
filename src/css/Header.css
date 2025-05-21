@@ -1,0 +1,161 @@
+
+
+.header__container {
+    width: 1920px;
+    padding: 30px 200px;
+    background-color: white;
+}
+
+.header__content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.header__top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__information-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.number {
+    margin-right: 20px;
+    font-size: 1.7em;
+}
+
+.number::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/elements-icon/header-elements/phone.svg');
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.header__basket {
+    height: 30px;
+    width: 30px;
+}
+
+.header__bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__list {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.header__basket-btn,
+.header__profile-btn,
+.header__list-item-btn,
+.header__magnifying-glass-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.7em;
+}
+
+.header__search-engine-form {
+    position: relative;
+}
+
+.header__search-engine {
+    padding: 13px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1.8em;
+    background-color: #e7e5e5a4;
+    border: 1px solid #b9b9b9a4;
+}
+
+.header__magnifying-glass-btn {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+
+@media (max-width: 1270px) {
+    .header__container {
+        padding: 30px 100px;
+    }
+}
+
+@media(max-width: 1060px) {
+    .header__container {
+        padding: 30px 50px;
+    }
+}
+
+@media(max-width: 920px) {
+    .header__container {
+        padding: 30px 15px;
+    }
+}
+
+@media(max-width: 840px) {
+    .header__bottom-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media(max-width: 570px) {
+
+    .header__information-block {
+        gap: 15px;
+    }
+    
+    .number {
+        margin-right: 0px;
+        font-size: 1.5em;
+    }
+    
+    .header__basket {
+        height: 20px;
+        width: 20px;
+    }
+
+    .header__profile{
+        height: 23px;
+        width: 23px;
+    }
+}
+
+@media(max-width: 497px) {
+
+    .header__top-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__information-block {
+        gap: 30px;
+    }
+    
+    .number {
+        font-size: 1.5em;
+    }
+    
+    .header__list {
+        gap: 21px;
+    }
+    
+    .header__list-item-btn{
+        font-size: 1.4em;
+    }
+
+    .header__content-container {
+        gap: 30px;
+    }
+}
