@@ -1,4 +1,5 @@
 import '../css/Registration-form.css'
+import { useNavigate } from 'react-router-dom';
 
 function RegistrationForm() {
     return (
@@ -14,7 +15,6 @@ function RegistrationForm() {
                             <button className="registration-form__sign-up">Зарегестрироваться</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
