@@ -9,7 +9,7 @@
 }
 
 .registration-form__container {
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: 0px 0px 30px hsl(0, 0%, 0%, 10%);
     border-radius: 10px;
 }
@@ -27,7 +27,6 @@
 .registration-form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
 }
 
 .registration-form__input {
@@ -39,25 +38,39 @@
     border: 1px solid #b9b9b9a4;
 }
 
-.registration-form__button-container {
+.registration-form__button-container,
+.registration-form__button-container-reverse {
     display: flex;
     justify-content: space-between;
+}
+
+.registration-form__button-container-reverse {
+    flex-direction: row-reverse;
 }
 
 .registration-form__sign-in,
 .registration-form__sign-up {
     padding: 15px 60px;
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--color-white);
     border: 1px solid #b9b9b9a4;
     font-weight: 500;
     font-size: 1.5em;
     cursor: pointer;
 }
 
-.registration-form__sign-up {
-    background-color: #3FCF5E;
-    color: white;
+.registration-form__active {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.registration-form__validation {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5em;
+    color: red;
+    height: 17px;
+    margin: 5px 0px 40px 0px;
 }
 
 @media(max-width: 837px) {
@@ -76,14 +89,10 @@
         padding: 10px 12px;
     }
 
-    .registration-form__sign-up {
-        background-color: #3FCF5E;
-        color: white;
-    }
 }
 
 @media(max-width: 416px) {
-.registration-form__content {
-    padding: 30px 20px;
-}
+    .registration-form__content {
+        padding: 30px 20px;
+    }
 }

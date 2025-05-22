@@ -1,3 +1,10 @@
+:root{
+    --color-white: white;
+    --color-green: #3FCF5E;
+    --color-black: black;
+}
+
+
 * {
     margin: 0px;
     padding: 0px;

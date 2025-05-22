@@ -3,9 +3,10 @@
     display: flex;
     justify-content: space-between;
     width: 1920px;
-    color: white;
+    color: var(--color-white);
     align-items: center;
-    padding: 50px 300px;
+    padding: 51px 300px;
+    box-sizing: border-box;
 }
 
 .footer__conditions-list {
@@ -14,9 +15,16 @@
     list-style: none;
 }
 
-.footer__conditions-list-item,
-.footer__number {
+
+.footer__number,
+.footer__conditions-list-item-btn {
     font-size: 1.5em;
+}
+
+.footer__conditions-list-item-btn{
+    background: none;
+    border: none;
+color: var(--color-white);
 }
 
 .footer__social-media {

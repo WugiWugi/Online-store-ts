@@ -6,8 +6,8 @@ function Footer() {
     return (
         <div className="footer__container">
             <ul className="footer__conditions-list">
-                <li className="footer__conditions-list-item">Оплата</li>
-                <li className="footer__conditions-list-item">Доставка</li>
+                <li className="footer__conditions-list-item"><button className='footer__conditions-list-item-btn'>Оплата</button></li>
+                <li className="footer__conditions-list-item"><button className='footer__conditions-list-item-btn'>Доставка</button></li>
             </ul>
             <div className="footer__social-media">
                 <img src={vk} alt="vk img" className="footer__vk" />
