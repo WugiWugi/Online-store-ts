@@ -15,7 +15,7 @@ app.use(express.json()); // <--- ЭТО ОБЯЗАТЕЛЬНО
 
 // Создание файла если его нет
 if (!fs.existsSync(usersFilePath)) {
-    fs.writeFileSync(usersFilePath, '[]');
+  fs.writeFileSync(usersFilePath, '[]');
 }
 
 // Роут регистрации
