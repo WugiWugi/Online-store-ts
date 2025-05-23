@@ -1,7 +1,7 @@
 import '../css/Registration-form.css'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function RegistrationForm() {
     const [btn, setBtn] = useState('sign-up')
@@ -14,6 +14,7 @@ function RegistrationForm() {
         validationPassword: ''
     }
     )
+    const [users, setUsers] = useState([]);
 
     function dataRegistration(e) {
         const { name, value } = e.target;
@@ -23,24 +24,66 @@ function RegistrationForm() {
         }));
     }
 
-    function formRegistration(e) {
-        e.preventDefault()
-        setBtn(e.nativeEvent.submitter.name)
-        const number = data.number.split('').filter(x => x !== ' ')
-        const password = data.password.split('')
-        if (number.length >= 8 && number.length <= 15) {
-            setValidation(prev => ({ ...prev, validationNumber: '' }))
+    async function formRegistration(e) {
+        e.preventDefault();
+        const currentBtn = e.nativeEvent.submitter.name;
+
+        const number = data.number;
+        const password = data.password;
+
+        const errors = {
+            validationNumber: '',
+            validationPassword: ''
+        };
+
+        if (currentBtn === 'sign-up') {
+            if (number.length !== 11 || !number.match(/^[89][0-9]+$/)) {
+                errors.validationNumber = 'Пожалуйста, введите номер в правильном формате.';
+            }
+            if (password.length === 0) {
+                errors.validationPassword = 'Необходимо заполнить форму';
+            } else if (password.length < 8 || password.length > 20) {
+                errors.validationPassword = 'Пароль должен содержать от 8 до 20 символов.';
+            } else if (!password.match(/^[A-Za-zА-Яа-яЁё0-9]+$/)) {
+                errors.validationPassword = 'Пароль должен содержать только латинские или русские буквы, либо цифры.';
+            }
+        }
+
+        setValidation(errors);
+
+        if (errors.validationNumber || errors.validationPassword) {
+            return;
+        }
+
+        // Теперь можно отправлять на сервер
+        const res = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ number, password }),
+        });
+
+        if (!res.ok) {
+            const errorData = await res.json();
+            alert(`Ошибка сервера: ${errorData.message}`);
         } else {
-            setValidation(prev => ({ ...prev, validationNumber: 'Пожалуйста, введите номер в правильном формате' }))
+            alert('Регистрация прошла успешно!');
         }
-
-        if(password.filter(y=>y!==' ' && y === Number)&&password.length !== 0){
-            setValidation(prev => ({ ...prev, validationPassword: '' }))
-        }else{
-            setValidation(prev => ({ ...prev, validationPassword: 'Пароль не должен содержать пробелов' }))
-        }
-
     }
+
+    useEffect(() => {
+        async function fetchUsers() {
+            try {
+                const res = await fetch('http://localhost:3000/users');
+                if (!res.ok) throw new Error('Ошибка сети');
+                const data = await res.json();
+                setUsers(data);  // Используем setUsers, которую объявили выше
+            } catch (error) {
+                console.error('Ошибка при получении пользователей:', error);
+            }
+        }
+
+        fetchUsers();
+    }, []);
 
     return (
         <div className="registration-form-bacground">
