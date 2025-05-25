@@ -2,7 +2,8 @@
 import '../css/Registration-form.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchUsers, registerUser } from '../features/users/usersSlice';
+import { fetchUsers, registerUser, clearError, setCurentUser } from '../features/users/usersSlice';
+import { useNavigate } from 'react-router-dom';
 
 function RegistrationForm() {
     const [data, setData] = useState({ number: '', password: '' });
@@ -11,9 +12,17 @@ function RegistrationForm() {
     const [clickedreg, setClickedReg] = useState(1);
     const dispatch = useDispatch();
     const users = useSelector(state => state.users.list);
-    const status = useSelector(state => state.users.status);
     const error = useSelector(state => state.users.error);
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        if (error && btn === 'sign-up' && clickedreg >= 1) {
+            setValidation(prev => ({
+                ...prev,
+                validationNumber: 'Пользователь с таким номером уже существует.'
+            }));
+        }
+    }, [error, btn, clickedreg]);
     useEffect(() => {
         if (btn === 'sign-up') {
             setClickedEntrance(0);
@@ -22,8 +31,6 @@ function RegistrationForm() {
         }
     }, [btn]);
     const [clickedreEntrance, setClickedEntrance] = useState(0);
-
-
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
@@ -42,6 +49,7 @@ function RegistrationForm() {
             validationNumber: '',
             validationPassword: ''
         };
+        const listUsers = users.find(user => user.number === number)
 
         if (currentBtn === 'sign-up') {
             if (btn !== 'sign-up') {
@@ -64,12 +72,11 @@ function RegistrationForm() {
                     errors.validationPassword = 'Пароль должен содержать от 8 до 20 символов.';
                 } else if (!password.match(/^[A-Za-zА-Яа-яЁё0-9]+$/)) {
                     errors.validationPassword = 'Пароль должен содержать только латинские или русские буквы, либо цифры.';
-                } else if (error) {
-                    errors.validationNumber = error
-                    errors.validationPassword = error
                 }
                 if (!errors.validationNumber && !errors.validationPassword) {
                     dispatch(registerUser(data));
+                    dispatch(clearError());
+                    setBtn('sign-in');
                 }
                 setValidation(errors);
             }
@@ -79,13 +86,19 @@ function RegistrationForm() {
                 setClickedEntrance(1);
             } else {
                 setClickedEntrance(prev => prev + 1);
+                if (listUsers) {
+                    dispatch(setCurentUser(listUsers))
+                    navigate('/')
+                } else {
+                    setValidation(prev => ({ ...prev, validationNumber: 'такого пользователя нет' }))
+                }
             }
             setBtn('sign-in');
         }
     };
 
     return (
-        <div className="registration-form-bacground">
+        <div className="header__bacground">
             <div className="registration-form__container">
                 <div className="registration-form__content">
                     <h2 className="registration-form__title">{btn === 'sign-up' || btn === '' ? 'Регистрация' : 'Вход в аккаунт'}</h2>
@@ -106,3 +119,6 @@ function RegistrationForm() {
 }
 
 export { RegistrationForm }
+
+
+

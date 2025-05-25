@@ -21,10 +21,10 @@
     font-size: 1.5em;
 }
 
-.footer__conditions-list-item-btn{
+.footer__conditions-list-item-btn {
     background: none;
     border: none;
-color: var(--color-white);
+    color: var(--color-white);
 }
 
 .footer__social-media {

@@ -15,29 +15,37 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     list: [],
-    status: null,
+    currentUser: null,
     error: null
   },
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = null;
+    },
+    setCurentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+    logoutUser: (state) => {
+      state.currentUser = null;
+      localStorage.removeItem('currentUser');
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.list = action.payload;
-        state.status = 'success';
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.list.push(action.payload);
-        state.status = 'registered';
       })
       .addCase(fetchUsers.rejected, (state, action) => {
-        state.status = 'error';
         state.error = action.error.message;
       })
       .addCase(registerUser.rejected, (state, action) => {
-        state.status = 'error';
         state.error = action.error.message;
       });
   }
 });
 
+export const { clearError, setCurentUser, logoutUser } = usersSlice.actions;
 export default usersSlice.reducer;
