@@ -216,9 +216,7 @@
     right: 25%;
 }
 
-.main__bacground-- {
-    padding: 70px 300px 150px 300px;
-}
+
 
 .products-pages__navigation-list {
     display: flex;
@@ -251,5 +249,6 @@
 .products-pages__product-content-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 40px;
 }

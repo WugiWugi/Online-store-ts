@@ -1,11 +1,11 @@
 import '../css/Header.css'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from "../assets/logo-img/logo.svg"
 import search from "../assets/elements-icon/header-elements/Search.svg"
 import basket from "../assets/elements-icon/header-elements/basket.svg"
 import profile from "../assets/elements-icon/header-elements/profile.svg"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function Header() {
@@ -18,6 +18,11 @@ function Header() {
         9.95443 7.09962 9.8625L3.34962 6.7375C3.28634 6.68504 3.23402 6.6206 3.19568 6.54788C3.15733 6.47516 3.13371 6.3956 3.12616 6.31374C3.11861 6.23188 3.12729 6.14933 3.15169 6.07083C3.1761 
         5.99233 3.21575 5.91941 3.26837 5.85625C3.32653 5.78456 3.39985 5.72664 3.48306 5.68665C3.56627 5.64667 3.65731 5.62561 3.74962 5.625Z" fill="currentColor" />
     </svg>
+    const location = useLocation()
+    useEffect(() => {
+        if (!catalogAction) return
+        setCatalogAction(false)
+    }, [location.pathname])
 
     function handleClick(e) {
         e.preventDefault()
@@ -44,21 +49,19 @@ function Header() {
 
                 <div className="header__bottom-container">
                     <nav className="header__nav-container">
-                        <form >
-                            <ul className="header__list">
-                                <li className="header__list-item"><button onClick={handleClick} className={`header__list-item-btn ${catalogAction ? 'item-action' : ''}`}>Каталог<span>{downArrow}</span></button>
-                                    {catalogAction && <ul className='header__catalog-list'>
-                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyMixes"} className=' header__catalog-list-item-link'>Готовые миксы</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/typesFeed"} className=' header__catalog-list-item-link'>Отдельные виды кормов</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/feeders"} className='header__catalog-list-item-link'>Кормушки</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyKits"} className='header__catalog-list-item-link'>Готовые комплекты</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/accessoriesAndMore"} className='header__catalog-list-item-link'>Аксессуары и другое</Link></li></ul>}
-                                </li>
-                                <li className="header__list-item"><Link className='header__list-item-btn'>О проекте</Link></li>
-                                <li className="header__list-item"><Link to='/birds' className='header__list-item-btn'>Птицы</Link></li>
-                                <li className="header__list-item"><Link className='header__list-item-btn'>Пожертвования</Link></li>
-                            </ul>
-                        </form>
+                        <ul className="header__list">
+                            <li className="header__list-item"><button onClick={handleClick} className={`header__list-item-btn ${catalogAction ? 'item-action' : ''}`}>Каталог<span>{downArrow}</span></button>
+                                {catalogAction && <ul className='header__catalog-list'>
+                                    <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyMixes"} className=' header__catalog-list-item-link'>Готовые миксы</Link></li>
+                                    <li className="Link header__catalog-list-item"><Link to={"/catalogPages/typesFeed"} className=' header__catalog-list-item-link'>Отдельные виды кормов</Link></li>
+                                    <li className="Link header__catalog-list-item"><Link to={"/catalogPages/feeders"} className='header__catalog-list-item-link'>Кормушки</Link></li>
+                                    <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyKits"} className='header__catalog-list-item-link'>Готовые комплекты</Link></li>
+                                    <li className="Link header__catalog-list-item"><Link to={"/catalogPages/accessoriesAndMore"} className='header__catalog-list-item-link'>Аксессуары и другое</Link></li></ul>}
+                            </li>
+                            <li className="header__list-item"><Link className='header__list-item-btn'>О проекте</Link></li>
+                            <li className="header__list-item"><Link to='/birds' className='header__list-item-btn'>Птицы</Link></li>
+                            <li className="header__list-item"><Link className='header__list-item-btn'>Пожертвования</Link></li>
+                        </ul>
                     </nav>
                     <form className="header__search-engine-form">
                         <input type="text" placeholder="Поиск" className="header__search-engine" />

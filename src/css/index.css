@@ -20,6 +20,8 @@ html {
 
 body {
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .main {
@@ -29,3 +31,4 @@ body {
     overflow-y: hidden;
     width: 1905px;
 }
+

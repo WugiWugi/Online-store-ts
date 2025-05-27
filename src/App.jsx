@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { React, useEffect, createContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, registerUser, clearError, setCurentUser, logoutUser } from './features/users/usersSlice';
 import { Routes, Route } from 'react-router-dom'
@@ -6,16 +6,16 @@ import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
 import { Footer } from './pages/Footer.jsx'
 import { Productsections } from './pages/Product-sections.jsx'
-import { CatalogPages } from './pages/catalogPages.jsx'
+import { CatalogPages } from './pages/Catalog-pages.jsx'
 import { useNavigate } from 'react-router-dom';
-import './css/App.css'
+import {data} from './pages/Products-data'
+export const userContext = createContext()
 
 function App() {
   const user = useSelector(state => state.users.currentUser);
   const users = useSelector(state => state.users.list);
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -43,11 +43,13 @@ function App() {
         <Header />
       </header>
       <main className="main">
-        <Routes>
-          <Route path='/registration' element={<RegistrationForm />} />
-          <Route path='/' element={<Productsections />} />
-          <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
-        </Routes>
+        <userContext.Provider value={data}>
+          <Routes>
+            <Route path='/registration' element={<RegistrationForm />} />
+            <Route path='/' element={<Productsections />} />
+            <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
+          </Routes>
+        </userContext.Provider>
       </main>
       <footer className="footer">
         <Footer />

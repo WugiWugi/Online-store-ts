@@ -1,23 +1,22 @@
-import { useState } from "react"
-import { useParams } from "react-router-dom"
-import { Link } from "react-router-dom"
-import readyMixJpg from '../assets/main-img/ready-mixes/ready-mix.jpg'
-import basket from "../assets/elements-icon/header-elements/basket.svg"
-const weight = ['200 г', '400 г', '800 г', '1 кг']
-const data = {
-    readyMixes: [{ nameProducts: 'Готовые миксы', src: readyMixJpg, alt: 'ready mixes', nameProduct: (<>PADOVAN OVOMIX <br />GOLD ROSSO</>), description: 'Корм для птиц', prise: '228 руб', weight: weight }]
-}
+import { useState, useEffect, useContext } from "react"
+import { Link, useLocation, useParams } from "react-router-dom"
+import { userContext } from '../App'
 
 function CatalogPages() {
+    const data = useContext(userContext)
     const { catalogPagesName } = useParams()
     const items = data[catalogPagesName][0] || []
     const cards = Array(8).fill(0).map((_, i) => i + 1)
     const [activeButtons, setActiveButtons] = useState(cards.map(() => 0));
+    const location = useLocation()
     const handleClick = (cardIndex, btnIndex) => {
         const updated = [...activeButtons];
         updated[cardIndex] = btnIndex;
         setActiveButtons(updated);
     };
+    useEffect(() => {
+        setActiveButtons(cards.map(() => 0))
+    }, [location.pathname])
     return (
         <div className="main__bacground main__bacground--">
             <div className="products-pages">
@@ -36,7 +35,7 @@ function CatalogPages() {
                 <div className="products-pages__product-content-container">
                     {cards.map((_, cardIndex) => (
                         <div className="product__container" key={cardIndex}>
-                            <img src={readyMixJpg} alt="ready mixes" className="product__img" />
+                            <img src={items.src} alt={items.alt} className="product__img" />
                             <h3 className="product__title">{items.nameProduct}</h3>
                             <p className="product__description">{items.description}</p>
                             <p className="product__price">{items.prise}</p>
@@ -54,7 +53,7 @@ function CatalogPages() {
                             <div className="product__btn-container">
                                 <button className="product__details-btn">Подробнее</button>
                                 <button className="product__add-cart-btn">
-                                    <img src={basket} alt="basket" className="product__busket-img" />
+                                    <img src={items.basket} alt="basket" className="product__busket-img" />
                                 </button>
                             </div>
                         </div>
