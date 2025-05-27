@@ -1,7 +1,7 @@
 .main__bacground {
     background-color: #e7e5e5a4;
     width: 100%;
-    padding: 50px 300px 200px 300px;
+    padding: 70px 300px 200px 300px;
     box-sizing: border-box;
 }
 
@@ -83,41 +83,41 @@
     justify-content: space-between;
 }
 
-.products__product-container {
+.product__container {
     background-color: #F2F2F2;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-10px);
     padding: 10px;
 }
 
-.products__img {
+.product__img {
     border-radius: var(--border-radius-10px);
 }
 
-.products__product-title {
+.product__title {
     margin: 10px 0px 0px 0px;
     font-size: 2em;
     font-weight: var(--light-weight);
 }
 
-.products__product-description {
+.product__description {
     font-size: 1.5em;
     color: rgba(0, 0, 0, 0.527);
     margin-top: 10px;
 }
 
-.products__product-price {
+.product__price {
     font-size: 2em;
     font-weight: 600;
     margin: 25px 0px;
 }
 
-.products__product-weight-container {
+.product__weight-container {
     display: flex;
     justify-content: space-between;
 }
 
-.products__product-weight-btn {
+.product__weight-btn {
     font-size: 1.7em;
     padding: 1px 13px;
     border-radius: 5px;
@@ -130,13 +130,13 @@
     border-color: var(--color-green);
 }
 
-.products__product__btn-container {
+.product__btn-container {
     display: flex;
     justify-content: space-between;
     margin: 15px 0px;
 }
 
-.products__product-details-btn {
+.product__details-btn {
     padding: 14px 52px;
     border-radius: var(--border-radius-10px);
     border: none;
@@ -145,7 +145,7 @@
     cursor: pointer;
 }
 
-.products__product-add-cart-btn {
+.product__add-cart-btn {
     padding: 7px 7px 5px 7px;
     border-radius: var(--border-radius-10px);
     border: 1px solid rgba(0, 0, 0, 0.164);
@@ -157,9 +157,6 @@
     width: 100%;
     padding: 80px 300px;
     box-sizing: border-box;
-}
-
-.charity {
     position: relative;
 }
 
@@ -202,8 +199,8 @@
     color: white;
 }
 
-.charity__form-filling::placeholder{
-color: rgba(255, 255, 255, 0.76);
+.charity__form-filling::placeholder {
+    color: rgba(255, 255, 255, 0.76);
 }
 
 .charity__form-fillin-btn {
@@ -217,4 +214,42 @@ color: rgba(255, 255, 255, 0.76);
     position: absolute;
     bottom: -2px;
     right: 25%;
+}
+
+.main__bacground-- {
+    padding: 70px 300px 150px 300px;
+}
+
+.products-pages__navigation-list {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.39);
+}
+
+.products-pages__navigation__list-item {
+    list-style: none;
+
+}
+
+.navigation__list-item-- {
+    list-style: inside;
+}
+
+.products-pages__back-element-container {
+    margin: 50px 0px;
+
+}
+
+.products-pages__back-element {
+    text-decoration: none;
+    color: black;
+    font-size: 1.8em;
+    margin-left: 10px;
+}
+
+.products-pages__product-content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
 }

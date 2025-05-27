@@ -20,19 +20,19 @@ function ReadyMixes() {
 
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => (
-                    <div className="products__product-container" key={cardIndex}>
-                        <img src={readyMixJpg} alt="ready mixes" className="products__img" />
-                        <h3 className="products__product-title">PADOVAN OVOMIX<br />GOLD ROSSO</h3>
-                        <p className="products__product-description">Корм для птиц</p>
-                        <p className="products__product-price">1000 руб.</p>
+                    <div className="product__container" key={cardIndex}>
+                        <img src={readyMixJpg} alt="ready mixes" className="product__img" />
+                        <h3 className="product__title">PADOVAN OVOMIX<br />GOLD ROSSO</h3>
+                        <p className="product__description">Корм для птиц</p>
+                        <p className="product__price">1000 руб.</p>
 
-                        <div className="products__product-weight-container">
+                        <div className="product__weight-container">
                             {weight.map((label, btnIndex) => {
                                 const isActive = activeButtons[cardIndex] === btnIndex;
                                 return (
                                     <button
                                         key={btnIndex}
-                                        className={`products__product-weight-btn ${isActive ? 'btn-weight-active' : ''}`}
+                                        className={`product__weight-btn ${isActive ? 'btn-weight-active' : ''}`}
                                         onClick={() => handleClick(cardIndex, btnIndex)}>
                                         {label}
                                     </button>
@@ -40,10 +40,10 @@ function ReadyMixes() {
                             })}
                         </div>
 
-                        <div className="products__product__btn-container">
-                            <button className="products__product-details-btn">Подробнее</button>
-                            <button className="products__product-add-cart-btn">
-                                <img src={basket} alt="basket" className="products__product-busket-img" />
+                        <div className="product__btn-container">
+                            <button className="product__details-btn">Подробнее</button>
+                            <button className="product__add-cart-btn">
+                                <img src={basket} alt="basket" className="product__busket-img" />
                             </button>
                         </div>
                     </div>

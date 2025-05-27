@@ -11,15 +11,15 @@ function Feeders() {
             </div>
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => (
-                    <div className="products__product-container" key={cardIndex}>
-                        <img src={feeders} alt="ready mixes" className="products__img" />
-                        <h3 className="products__product-title">Комплект-агро<br />"Избушка на курьих<br />ножках"</h3>
-                        <p className="products__product-description">Кормушка Малая</p>
-                        <p className="products__product-price">1000 руб.</p>
-                        <div className="products__product__btn-container">
-                            <button className="products__product-details-btn">Подробнее</button>
-                            <button className="products__product-add-cart-btn">
-                                <img src={basket} alt="basket" className="products__product-busket-img" />
+                    <div className="product__container" key={cardIndex}>
+                        <img src={feeders} alt="ready mixes" className="product__img" />
+                        <h3 className="product__title">Комплект-агро<br />"Избушка на курьих<br />ножках"</h3>
+                        <p className="product__description">Кормушка Малая</p>
+                        <p className="product__price">1000 руб.</p>
+                        <div className="product__btn-container">
+                            <button className="product__details-btn">Подробнее</button>
+                            <button className="product__add-cart-btn">
+                                <img src={basket} alt="basket" className="product__busket-img" />
                             </button>
                         </div>
                     </div>

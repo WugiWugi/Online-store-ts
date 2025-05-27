@@ -48,11 +48,11 @@ function Header() {
                             <ul className="header__list">
                                 <li className="header__list-item"><button onClick={handleClick} className={`header__list-item-btn ${catalogAction ? 'item-action' : ''}`}>Каталог<span>{downArrow}</span></button>
                                     {catalogAction && <ul className='header__catalog-list'>
-                                        <li className="Link header__catalog-list-item"><Link className='Link header__catalog-list-item-link'>Готовые миксы</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link className='Link header__catalog-list-item-link'>Отдельные виды кормов</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link className='Link header__catalog-list-item-link'>Кормушки</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link className='Link header__catalog-list-item-link'>Готовые комплекты</Link></li>
-                                        <li className="Link header__catalog-list-item"><Link className='Link header__catalog-list-item-link'>Аксессуары и другое</Link></li></ul>}
+                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyMixes"} className=' header__catalog-list-item-link'>Готовые миксы</Link></li>
+                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/typesFeed"} className=' header__catalog-list-item-link'>Отдельные виды кормов</Link></li>
+                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/feeders"} className='header__catalog-list-item-link'>Кормушки</Link></li>
+                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyKits"} className='header__catalog-list-item-link'>Готовые комплекты</Link></li>
+                                        <li className="Link header__catalog-list-item"><Link to={"/catalogPages/accessoriesAndMore"} className='header__catalog-list-item-link'>Аксессуары и другое</Link></li></ul>}
                                 </li>
                                 <li className="header__list-item"><Link className='header__list-item-btn'>О проекте</Link></li>
                                 <li className="header__list-item"><Link to='/birds' className='header__list-item-btn'>Птицы</Link></li>

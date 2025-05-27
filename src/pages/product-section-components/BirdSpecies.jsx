@@ -10,12 +10,12 @@ function BirdSpecies() {
             </div>
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => (
-                    <div className="products__product-container" key={cardIndex}>
-                        <img src={houseSparrow} alt="ready mixes" className="products__img" />
-                        <h3 className="products__product-title">Домовый воробей</h3>
-                        <p className="products__product-description">68</p>
-                        <div className="products__product__btn-container">
-                            <button className="products__product-details-btn">Подробнее</button>
+                    <div className="product__container" key={cardIndex}>
+                        <img src={houseSparrow} alt="ready mixes" className="product__img" />
+                        <h3 className="product__title">Домовый воробей</h3>
+                        <p className="product__description">68</p>
+                        <div className="product__btn-container">
+                            <button className="product__details-btn">Подробнее</button>
                         </div>
                     </div>
                 ))}

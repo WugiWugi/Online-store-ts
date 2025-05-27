@@ -1,0 +1,68 @@
+import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
+import readyMixJpg from '../assets/main-img/ready-mixes/ready-mix.jpg'
+import basket from "../assets/elements-icon/header-elements/basket.svg"
+const weight = ['200 г', '400 г', '800 г', '1 кг']
+const data = {
+    readyMixes: [{ nameProducts: 'Готовые миксы', src: readyMixJpg, alt: 'ready mixes', nameProduct: (<>PADOVAN OVOMIX <br />GOLD ROSSO</>), description: 'Корм для птиц', prise: '228 руб', weight: weight }]
+}
+
+function CatalogPages() {
+    const { catalogPagesName } = useParams()
+    const items = data[catalogPagesName][0] || []
+    const cards = Array(8).fill(0).map((_, i) => i + 1)
+    const [activeButtons, setActiveButtons] = useState(cards.map(() => 0));
+    const handleClick = (cardIndex, btnIndex) => {
+        const updated = [...activeButtons];
+        updated[cardIndex] = btnIndex;
+        setActiveButtons(updated);
+    };
+    return (
+        <div className="main__bacground main__bacground--">
+            <div className="products-pages">
+                <nav className="products-pages__navigation-list-container">
+                    <ul className="products-pages__navigation-list">
+                        <li className="products-pages__navigation__list-item">Каталог</li>
+                        <li className="products-pages__navigation__list-item navigation__list-item--">{items.nameProducts}</li>
+                    </ul>
+                </nav>
+                <div className="products-pages__back-element-container">
+                    <svg className="products-pages__left-arrow-element" width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.24975 1.50002C5.2501 1.67526 5.18907 1.84508 5.07726 1.98002L1.71726 6.00002L4.95726 10.0275C5.01955 10.1042 5.06608 10.1925 5.09415 10.2873C5.12223 10.382 5.1313 10.4814 5.12084 10.5797C5.11039 10.6779 5.08062 10.7732 5.03324 10.8599C4.98585 10.9466 4.9218 11.0231 4.84476 11.085C4.76804 11.1473 4.67977 11.1938 4.58501 11.2219C4.49026 11.25 4.39089 11.2591 4.29262 11.2486C4.19435 11.2382 4.09911 11.2084 4.01238 11.161C3.92566 11.1136 3.84915 11.0496 3.78726 10.9725L0.164756 6.47252C0.0544451 6.33832 -0.0058596 6.16999 -0.0058596 5.99627C-0.00585961 5.82255 0.0544451 5.65422 0.164756 5.52002L3.91476 1.02002C3.97772 0.944075 4.05504 0.881298 4.1423 0.835284C4.22956 0.78927 4.32504 0.760921 4.42328 0.751864C4.52151 0.742808 4.62056 0.75322 4.71477 0.782504C4.80897 0.811787 4.89647 0.859366 4.97226 0.922518C5.05829 0.992308 5.1278 1.08029 5.17578 1.18015C5.22376 1.28 5.24902 1.38924 5.24975 1.50002Z" fill="#3FCF5E" />
+                    </svg>
+                    <Link to="/" className="products-pages__back-element">Назад</Link>
+                </div>
+                <div className="products-pages__product-content-container">
+                    {cards.map((_, cardIndex) => (
+                        <div className="product__container" key={cardIndex}>
+                            <img src={readyMixJpg} alt="ready mixes" className="product__img" />
+                            <h3 className="product__title">{items.nameProduct}</h3>
+                            <p className="product__description">{items.description}</p>
+                            <p className="product__price">{items.prise}</p>
+                            {items.weight.map((weight, btnIndex) => {
+                                const isActive = activeButtons[cardIndex] === btnIndex;
+                                return (
+                                    <button
+                                        key={btnIndex}
+                                        className={`product__weight-btn ${isActive ? 'btn-weight-active' : ''}`}
+                                        onClick={() => handleClick(cardIndex, btnIndex)}>
+                                        {weight}
+                                    </button>
+                                )
+                            })}
+                            <div className="product__btn-container">
+                                <button className="product__details-btn">Подробнее</button>
+                                <button className="product__add-cart-btn">
+                                    <img src={basket} alt="basket" className="product__busket-img" />
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export { CatalogPages }

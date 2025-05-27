@@ -6,6 +6,7 @@ import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
 import { Footer } from './pages/Footer.jsx'
 import { Productsections } from './pages/Product-sections.jsx'
+import { CatalogPages } from './pages/catalogPages.jsx'
 import { useNavigate } from 'react-router-dom';
 import './css/App.css'
 
@@ -45,6 +46,7 @@ function App() {
         <Routes>
           <Route path='/registration' element={<RegistrationForm />} />
           <Route path='/' element={<Productsections />} />
+          <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
         </Routes>
       </main>
       <footer className="footer">

@@ -112,6 +112,7 @@
 
 .header__catalog-list-item-link {
     text-decoration: none;
+    color: black;
 }
 
 .header__search-engine-form {

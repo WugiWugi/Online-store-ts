@@ -10,7 +10,7 @@ function Catalog() {
             <div className="catalog__inner-container">
                 <img src={feedersJpg} alt="feeders" className="catalog__inner-img" />
                 <h3 className="catalog__inner-title">Кормушки</h3>
-                <button className="catalog__inner-btn">Подробнее</button>
+                <button className="catalog__inner-btn--">Подробнее</button>
             </div>
             <div className="catalog__inner-container">
                 <img src={certainTypesFeedJpg} alt="certain types" className="catalog__inner-img" />
