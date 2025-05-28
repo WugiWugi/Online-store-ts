@@ -48,8 +48,8 @@ export const data = {
   readyKits: [{ nameProducts: 'Готовые комплекты', src: readyKitsJpg, alt: 'ready kits img', nameProduct: (<>Корм для птиц RIO<br />Линька</>), description: 'для волнистых попугайчиков', prise: 300, weight: weight, basket: basket }],
   accessoriesAndMore: [{ nameProducts: 'Аксессуары и другое', src: accessoriesJpg, alt: 'aaccessories img', nameProduct: (<>Домик для птиц TRIOL<br />из кокоса</>), description: 'кормушка малая', prise: 1000, weight: weight, basket: basket }],
   sparrowPages: [{
-    nameProducts: 'Домовой воробей',
-    nameProduct: (<>Домовый воробей</>),
+    nameProducts: 'Готовые миксы',
+    nameProductPages: 'Домовый воробей',
     productPagesSrc: sparrowPagesImg,
     alt: 'sparrow img',
     detailedDescription: (

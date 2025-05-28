@@ -31,7 +31,7 @@ function ProductPages() {
                     <div className="product-pages__product-container">
                         <img src={items.productPagesSrc} alt={items.alt} className="product-pages__img" />
                         <div className="product-pages__text-container">
-                            <h3 className="product-pages__product-name">{items.nameProduct}</h3>
+                            <h3 className="product-pages__product-name">{items.nameProductPages}</h3>
                             <p className="product-pages__product-description">{items.detailedDescription}</p>
                             {items.weight && (<>
                                 <div className="product-pages__weight-container">

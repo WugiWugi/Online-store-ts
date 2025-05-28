@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { userContext } from '../../App'
+import { Link } from 'react-router-dom'
 
 function Feeders() {
     const data = useContext(userContext).feeders[0]
@@ -16,9 +17,9 @@ function Feeders() {
                         <img src={data.src} alt={data.alt} className="product__img" />
                         <h3 className="product__title">{data.nameProduct}</h3>
                         <p className="product__description">{data.description}</p>
-                        <p className="product__price">{data.prise}</p>
+                        <p className="product__price">{`${data.prise} руб.`}</p>
                         <div className="product__btn-container">
-                            <button className="product__details-btn">Подробнее</button>
+                            <Link className="product__details-btn">Подробнее</Link>
                             <button className="product__add-cart-btn">
                                 <img src={data.basket} alt="basket" className="product__busket-img" />
                             </button>

@@ -34,7 +34,8 @@
 }
 
 .catalog__inner-title {
-    font-size: 1.8em;
+    font-size: 2em;
+    font-weight: var(--light-weight);
     margin-top: 10px;
 }
 
@@ -47,12 +48,15 @@
 .catalog__inner-btn--,
 .catalog__inner-btn {
     margin-top: 40px;
-    padding: 10px 25px;
+padding: 14px 52px;
     border-radius: 5px;
     border: none;
     background-color: var(--color-green);
     color: var(--color-white);
     cursor: pointer;
+font-size: 1.5em;
+    text-decoration: none;
+
 }
 
 .catalog__inner-btn-- {
