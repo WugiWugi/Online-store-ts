@@ -5,10 +5,11 @@ import { Routes, Route } from 'react-router-dom'
 import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
 import { Footer } from './pages/Footer.jsx'
-import { Productsections } from './pages/Product-sections.jsx'
+import { ProductSections } from './pages/Product-sections.jsx'
 import { CatalogPages } from './pages/Catalog-pages.jsx'
+import { ProductPages } from './pages/Product-pages.jsx'
 import { useNavigate } from 'react-router-dom';
-import {data} from './pages/Products-data'
+import { data } from './pages/Products-data'
 export const userContext = createContext()
 
 function App() {
@@ -46,8 +47,9 @@ function App() {
         <userContext.Provider value={data}>
           <Routes>
             <Route path='/registration' element={<RegistrationForm />} />
-            <Route path='/' element={<Productsections />} />
+            <Route path='/' element={<ProductSections />} />
             <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
+            <Route path="/productPages/:productPagesName" element={<ProductPages />} />
           </Routes>
         </userContext.Provider>
       </main>

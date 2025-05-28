@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import houseSparrow from '../../assets/main-img/bird-species/house-sparrow.jpg'
 
 function BirdSpecies() {
@@ -15,7 +16,7 @@ function BirdSpecies() {
                         <h3 className="product__title">Домовый воробей</h3>
                         <p className="product__description">68</p>
                         <div className="product__btn-container">
-                            <button className="product__details-btn">Подробнее</button>
+                            <Link to={"/productPages/sparrowPages"} className="product__details-btn">Подробнее</Link>
                         </div>
                     </div>
                 ))}

@@ -1,6 +1,6 @@
 .header__container {
-    width: 1905px;
     padding: 30px 300px;
+    box-sizing: border-box;
     background-color: var(--color-white);
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import readyMixJpg from '../../assets/main-img/ready-mixes/ready-mix.jpg'
 import basket from "../../assets/elements-icon/header-elements/basket.svg"
 
@@ -41,7 +42,7 @@ function ReadyMixes() {
                         </div>
 
                         <div className="product__btn-container">
-                            <button className="product__details-btn">Подробнее</button>
+                            <Link to={"/productPages/readyMixes"} className="product__details-btn">Подробнее</Link>
                             <button className="product__add-cart-btn">
                                 <img src={basket} alt="basket" className="product__busket-img" />
                             </button>

@@ -12,12 +12,6 @@ function Grains() {
         setActiveButtons(updated);
     };
     return (
-        <div className="product__ready-mixes">
-            <div className="products__about-products-container">
-                <h2 className="products__title">Зёрна</h2>
-                <button className="products__more">Eщё</button>
-            </div>
-
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => (
                     <div className="product__container" key={cardIndex}>
@@ -49,7 +43,6 @@ function Grains() {
                     </div>
                 ))}
             </div>
-        </div>
     )
 }
 
