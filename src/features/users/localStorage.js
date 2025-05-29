@@ -10,10 +10,34 @@ export const saveToLocalStorage = (state) => {
 export const loadFromLocalStorage = () => {
   try {
     const serializedState = localStorage.getItem('appState');
-    if (serializedState === null) return undefined;
-    return JSON.parse(serializedState);
+    if (serializedState === null) {
+      return {
+        users: {
+          list: [],
+          currentUser: null,
+          error: null,
+          busket: []
+        }
+      };
+    }
+    const parsed = JSON.parse(serializedState);
+    return {
+      users: {
+        list: parsed?.users?.list || [],
+        currentUser: parsed?.users?.currentUser || null,
+        error: parsed?.users?.error || null,
+        busket: parsed?.users?.busket || [] 
+      }
+    };
   } catch (e) {
     console.warn('Ошибка при загрузке из localStorage', e);
-    return undefined;
+    return {
+      users: {
+        list: [],
+        currentUser: null,
+        error: null,
+        busket: []
+      }
+    };
   }
 };

@@ -1,15 +1,20 @@
 import '../css/Header.css'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 import logo from "../assets/logo-img/logo.svg"
 import search from "../assets/elements-icon/header-elements/Search.svg"
-import basket from "../assets/elements-icon/header-elements/basket.svg"
+import busketImg from "../assets/elements-icon/header-elements/basket.svg"
 import profile from "../assets/elements-icon/header-elements/profile.svg"
 import { useState, useEffect } from 'react'
-
+import { fetchUsers, registerUser, clearError, setCurentUser, logoutUser, restartBusket } from '../features/users/usersSlice';
 
 function Header() {
     const [catalogAction, setCatalogAction] = useState(false)
+    const busket = useSelector(state => state.users.busket).length
+    useEffect(() => {
+        console.log(busket.length)
+    }, [busket])
     const downArrow = <svg className={`header__list-item-down-arrow ${catalogAction ? 'item-down-arrow-action' : ''}`} width="15" height="15" viewBox="0 0 15 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M3.74962 5.625C3.89566 5.62472 4.03718 5.67558 4.14962 
         5.76875L7.49962 8.56875L10.8559 5.86875C10.9198 5.81684 10.9934 5.77807 11.0723 5.75467C11.1513 5.73128 11.2341 5.72372 11.316 5.73243C11.3979 5.74114 11.4772 
@@ -28,7 +33,7 @@ function Header() {
         e.preventDefault()
         setCatalogAction(!catalogAction)
     }
-
+    const dispatch = useDispatch()
     return (
         <div className="header__container">
             <div className="header__content-container">
@@ -38,12 +43,15 @@ function Header() {
                     </div>
                     <div className="header__information-block">
                         <p className="header__number">8 920 999 43 50</p>
-                        <button className="header__basket-btn">
-                            <img src={basket} alt="basket img" className='header__basket' />
-                        </button>
-                        <button className="header__profile-btn">
+                        <Link className="header__basket-btn">
+                            <div className="header__busket-item-container">
+                                <span className="header__busket-item">{busket !== 0 && busket >= 99 ? '99+' : busket}</span>
+                            </div>
+                            <img src={busketImg} alt="busket img" className='header__basket' />
+                        </Link>
+                        <Link className="header__profile-btn">
                             <img src={profile} alt="profile img" className="header__profile" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

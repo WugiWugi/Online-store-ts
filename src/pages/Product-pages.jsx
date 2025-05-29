@@ -47,7 +47,7 @@ function ProductPages() {
                                         )
                                     })}
                                 </div>
-                                <p className="product-pages__price">{`${items.prise * activeButtons * productQuantity} руб.`}</p>
+                                <p className="product-pages__price">{`${items.price * activeButtons * productQuantity} руб.`}</p>
                                 <p className="product-pages__quantity-text">Количество:</p>
                                 <div className="product-pages__add-button-container">
                                     <button onClick={() => { productQuantity !== 1 ? setProductQuantity(productQuantity - 1) : '' }} className="product-pages__product-reduce-btn">--</button>

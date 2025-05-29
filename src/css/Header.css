@@ -37,9 +37,28 @@
     vertical-align: middle;
 }
 
+.header__basket-btn{
+    position: relative;
+}
+
 .header__basket {
     height: 30px;
     width: 30px;
+}
+
+.header__busket-item-container{
+position: absolute;
+top: -13px;
+right: -13px;
+border-radius: 50%;
+padding: 10% 25% 10% 25%;
+background-color: var(--color-green);
+color: var(--color-white);
+font-weight: 600;
+}
+
+.header__busket-item{
+
 }
 
 .header__bottom-container {

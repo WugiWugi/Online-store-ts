@@ -16,7 +16,8 @@ const usersSlice = createSlice({
   initialState: {
     list: [],
     currentUser: null,
-    error: null
+    error: null,
+    busket: []
   },
   reducers: {
     clearError: (state) => {
@@ -28,6 +29,12 @@ const usersSlice = createSlice({
     logoutUser: (state) => {
       state.currentUser = null;
       localStorage.removeItem('currentUser');
+    },
+    pushBusket: (state, action) => {
+      state.busket.push(action.payload);
+    },
+    restartBusket: (state) => {
+      state.busket = []
     }
   },
   extraReducers: builder => {
@@ -47,5 +54,5 @@ const usersSlice = createSlice({
   }
 });
 
-export const { clearError, setCurentUser, logoutUser } = usersSlice.actions;
+export const { clearError, setCurentUser, logoutUser, pushBusket, restartBusket } = usersSlice.actions;
 export default usersSlice.reducer;

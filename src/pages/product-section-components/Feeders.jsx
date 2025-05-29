@@ -17,7 +17,7 @@ function Feeders() {
                         <img src={data.src} alt={data.alt} className="product__img" />
                         <h3 className="product__title">{data.nameProduct}</h3>
                         <p className="product__description">{data.description}</p>
-                        <p className="product__price">{`${data.prise} руб.`}</p>
+                        <p className="product__price">{`${data.price} руб.`}</p>
                         <div className="product__btn-container">
                             <Link className="product__details-btn">Подробнее</Link>
                             <button className="product__add-cart-btn">

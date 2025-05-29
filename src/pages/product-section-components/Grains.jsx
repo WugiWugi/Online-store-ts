@@ -6,7 +6,6 @@ function Grains() {
     const cards = [1, 2, 3, 4];
     const data = useContext(userContext).typesFeed[0]
     const [activeButtons, setActiveButtons] = useState(cards.map(() => 0));
-    const [price, usePrice] = useState(1)
     const handleClick = (cardIndex, btnIndex) => {
         const updated = [...activeButtons];
         updated[cardIndex] = btnIndex;
@@ -15,13 +14,13 @@ function Grains() {
     return (
         <div className="products__content-container">
             {cards.map((_, cardIndex) => {
-                const priceActive = activeButtons.map(x=>x===cardIndex)
-                console.log(priceActive)
+                const price = data.price * (activeButtons[cardIndex] + 1);
+
                 return (<div className="product__container" key={cardIndex}>
                     <img src={data.src} alt={data.alt} className="product__img" />
                     <h3 className="product__title">{data.nameProduct}</h3>
                     <p className="product__description">{data.description}</p>
-                    <p className="product__price">{`${priceActive&&data.prise*priceActive} руб.`}</p>
+                    <p className="product__price">{`${price} руб.`}</p>
 
                     <div className="product__weight-container">
                         {data.weight.map((label, btnIndex) => {

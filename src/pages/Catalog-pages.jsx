@@ -33,12 +33,13 @@ function CatalogPages() {
                     <Link to="/" className="pages__back-element">Назад</Link>
                 </div>
                 <div className="products-pages__product-content-container">
-                    {cards.map((_, cardIndex) => (
-                        <div className="product__container" key={cardIndex}>
+                    {cards.map((_, cardIndex) => {
+                        const price = items.price * (activeButtons[cardIndex] + 1);
+                        return <div className="product__container" key={cardIndex}>
                             <img src={items.src} alt={items.alt} className="product__img" />
                             <h3 className="product__title">{items.nameProduct}</h3>
                             <p className="product__description">{items.description}</p>
-                            <p className="product__price">{`${items.prise} руб.`}</p>
+                            <p className="product__price">{`${price} руб.`}</p>
                             {items.weight.map((weight, btnIndex) => {
                                 const isActive = activeButtons[cardIndex] === btnIndex;
                                 return (
@@ -57,7 +58,7 @@ function CatalogPages() {
                                 </button>
                             </div>
                         </div>
-                    ))}
+                    })}
                 </div>
             </div>
         </div>

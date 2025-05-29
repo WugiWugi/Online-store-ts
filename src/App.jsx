@@ -1,6 +1,6 @@
 import { React, useEffect, createContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers, registerUser, clearError, setCurentUser, logoutUser } from './features/users/usersSlice';
+import { fetchUsers, registerUser, clearError, setCurentUser, logoutUser, restartBusket } from './features/users/usersSlice';
 import { Routes, Route } from 'react-router-dom'
 import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
@@ -15,6 +15,7 @@ export const userContext = createContext()
 function App() {
   const user = useSelector(state => state.users.currentUser);
   const users = useSelector(state => state.users.list);
+  const basket = useSelector(state => state.users.busket)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
@@ -36,8 +37,6 @@ function App() {
       navigate('/');
     }
   }, [users, user, dispatch, navigate]);
-
-
   return (
     <>
       <header className="header">
