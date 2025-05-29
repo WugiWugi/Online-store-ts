@@ -16,9 +16,13 @@ function ReadyMixes() {
     };
     function pushDataOfBusket(price, cardIndex) {
         return {
-            name: data.nameProductPages, src: data.src, articul:
-                data.articul, description: data.description,
-            weight: data.weight[activeButtons[cardIndex]], price: price
+            name: data.nameProductPages,
+            articul: data.articul,
+            description: data.description,
+            weight: data.weight[activeButtons[cardIndex]],
+            initialСost: data.price,
+            price: price,
+            alt: data.alt
         }
     }
     return (

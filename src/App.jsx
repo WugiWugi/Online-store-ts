@@ -5,9 +5,11 @@ import { Routes, Route } from 'react-router-dom'
 import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
 import { Footer } from './pages/Footer.jsx'
+import { Busket } from './pages/Busket.jsx'
 import { ProductSections } from './pages/Product-sections.jsx'
 import { CatalogPages } from './pages/Catalog-pages.jsx'
 import { ProductPages } from './pages/Product-pages.jsx'
+import { FormPayment } from './pages/Form-payment.jsx'
 import { useNavigate } from 'react-router-dom';
 import { data } from './pages/Products-data'
 export const userContext = createContext()
@@ -49,6 +51,8 @@ function App() {
             <Route path='/' element={<ProductSections />} />
             <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
             <Route path="/productPages/:productPagesName" element={<ProductPages />} />
+            <Route path="/busket" element={<Busket />} />
+            <Route path="/formPayment" element={<FormPayment />} />
           </Routes>
         </userContext.Provider>
       </main>

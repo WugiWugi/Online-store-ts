@@ -1,5 +1,5 @@
 .main__bacground {
-    background-color: #e7e5e5a4;
+    background-color: #F9F9F9;
     width: 100%;
     padding: 70px 300px 200px 300px;
     box-sizing: border-box;
@@ -137,6 +137,7 @@ font-size: 1.5em;
 
 .btn-weight-active {
     border-color: var(--color-green);
+    background-color: var(--color-white);
 }
 
 .product__btn-container {
@@ -245,12 +246,12 @@ font-size: 1.5em;
     list-style: inside;
 }
 
-.pages__back-element-container {
+.back-element-container {
     margin: 50px 0px;
 
 }
 
-.pages__back-element {
+.back-element {
     text-decoration: none;
     color: black;
     font-size: 1.8em;

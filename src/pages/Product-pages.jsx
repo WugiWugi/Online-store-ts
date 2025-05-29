@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom"
 import { userContext } from '../App'
 import { Grains } from './product-section-components/Grains.jsx'
 import { ReadyKits } from './product-pages/Ready-kits.jsx'
+import { BackElement } from './Back-element.jsx'
 import '../css/Product-pages.css'
 
 function ProductPages() {
@@ -21,12 +22,7 @@ function ProductPages() {
                         <li className="pages__navigation__list-item navigation__list-item--">{items.nameProductPages}</li>
                     </ul>
                 </nav>
-                <div className="pages__back-element-container">
-                    <svg className="pages__left-arrow-element" width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.24975 1.50002C5.2501 1.67526 5.18907 1.84508 5.07726 1.98002L1.71726 6.00002L4.95726 10.0275C5.01955 10.1042 5.06608 10.1925 5.09415 10.2873C5.12223 10.382 5.1313 10.4814 5.12084 10.5797C5.11039 10.6779 5.08062 10.7732 5.03324 10.8599C4.98585 10.9466 4.9218 11.0231 4.84476 11.085C4.76804 11.1473 4.67977 11.1938 4.58501 11.2219C4.49026 11.25 4.39089 11.2591 4.29262 11.2486C4.19435 11.2382 4.09911 11.2084 4.01238 11.161C3.92566 11.1136 3.84915 11.0496 3.78726 10.9725L0.164756 6.47252C0.0544451 6.33832 -0.0058596 6.16999 -0.0058596 5.99627C-0.00585961 5.82255 0.0544451 5.65422 0.164756 5.52002L3.91476 1.02002C3.97772 0.944075 4.05504 0.881298 4.1423 0.835284C4.22956 0.78927 4.32504 0.760921 4.42328 0.751864C4.52151 0.742808 4.62056 0.75322 4.71477 0.782504C4.80897 0.811787 4.89647 0.859366 4.97226 0.922518C5.05829 0.992308 5.1278 1.08029 5.17578 1.18015C5.22376 1.28 5.24902 1.38924 5.24975 1.50002Z" fill="#3FCF5E" />
-                    </svg>
-                    <Link to="/" className="pages__back-element">Назад</Link>
-                </div>
+                <BackElement />
                 <div className="product-pages__container">
                     <div className="product-pages__product-container">
                         <img src={items.productPagesSrc} alt={items.alt} className="product-pages__img" />

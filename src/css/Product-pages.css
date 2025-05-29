@@ -61,6 +61,7 @@
     font-weight: 1000;
     cursor: pointer;
     font-size: 1.5em;
+    background-color: var(--color-white);
 }
 
 .product-pages__product-reduce-btn {
