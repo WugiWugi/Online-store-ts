@@ -16,7 +16,8 @@ export const loadFromLocalStorage = () => {
           list: [],
           currentUser: null,
           error: null,
-          busket: []
+          busket: [],
+          purchasedProducts: []
         }
       };
     }
@@ -26,7 +27,8 @@ export const loadFromLocalStorage = () => {
         list: parsed?.users?.list || [],
         currentUser: parsed?.users?.currentUser || null,
         error: parsed?.users?.error || null,
-        busket: parsed?.users?.busket || [] 
+        busket: parsed?.users?.busket || [],
+        purchasedProducts: parsed?.users?.purchasedProducts || [],
       }
     };
   } catch (e) {

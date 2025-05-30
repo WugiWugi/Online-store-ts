@@ -17,29 +17,54 @@ const usersSlice = createSlice({
     list: [],
     currentUser: null,
     error: null,
-    busket: []
+    busket: [],
+    purchasedProducts: []
   },
   reducers: {
     clearError: (state) => {
       state.error = null;
     },
-    removeFromBusketByIndex: (state, action) => {
-      state.busket.splice(action.payload, 1);
-    },
     setCurentUser: (state, action) => {
       state.currentUser = action.payload;
     },
-
     logoutUser: (state) => {
       state.currentUser = null;
       localStorage.removeItem('currentUser');
     },
     pushBusket: (state, action) => {
-      state.busket.push(action.payload);
+      const newItem = {
+        ...action.payload,
+        quantity: 1,
+        totalPrice: action.payload.price
+      };
+      state.busket.push(newItem);
+    },
+    removeFromBusketByIndex: (state, action) => {
+      state.busket.splice(action.payload, 1);
+    },
+    updateProductQuantity: (state, action) => {
+      const { index, quantity } = action.payload;
+      const product = state.busket[index];
+      if (product && quantity > 0) {
+        product.quantity = quantity;
+        product.totalPrice = product.price * quantity;
+      }
     },
     restartBusket: (state) => {
-      state.busket = []
-    }
+      state.busket = [];
+    },
+    pushProductsPurchased: (state) => {
+      if (!Array.isArray(state.purchasedProducts)) {
+        state.purchasedProducts = [];
+      }
+
+      state.purchasedProducts = [
+        ...state.purchasedProducts,
+        ...state.busket.map(product => ({ ...product }))
+      ];
+
+      state.busket = [];
+    },
   },
   extraReducers: builder => {
     builder
@@ -58,5 +83,5 @@ const usersSlice = createSlice({
   }
 });
 
-export const { clearError, setCurentUser, logoutUser, pushBusket, restartBusket, removeFromBusketByIndex } = usersSlice.actions;
+export const { clearError, setCurentUser, logoutUser, pushBusket, removeFromBusketByIndex, updateProductQuantity, restartBusket, pushProductsPurchased } = usersSlice.actions;
 export default usersSlice.reducer;
