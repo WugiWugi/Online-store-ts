@@ -6,10 +6,13 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   return response;
 });
 
-export const registerUser = createAsyncThunk('users/registerUser', async ({ number, password }) => {
-  const response = await registerUserAPI(number, password);
-  return response;
-});
+export const registerUser = createAsyncThunk(
+  'users/registerUser',
+  async ({ number, password }) => {
+    const response = await registerUserAPI(number, password);
+    return response;
+  }
+); 
 
 const usersSlice = createSlice({
   name: 'users',
@@ -18,7 +21,12 @@ const usersSlice = createSlice({
     currentUser: null,
     error: null,
     busket: [],
-    purchasedProducts: []
+    purchasedProducts: [],
+    usersData: {
+      userName: '',
+      userEmail: '',
+      userAdress: ''
+    }
   },
   reducers: {
     clearError: (state) => {
@@ -30,6 +38,9 @@ const usersSlice = createSlice({
     logoutUser: (state) => {
       state.currentUser = null;
       localStorage.removeItem('currentUser');
+    },
+    setUsersData: (state, action) => {
+      state.usersData = action.payload;
     },
     pushBusket: (state, action) => {
       const newItem = {
@@ -57,16 +68,14 @@ const usersSlice = createSlice({
       if (!Array.isArray(state.purchasedProducts)) {
         state.purchasedProducts = [];
       }
-
       state.purchasedProducts = [
         ...state.purchasedProducts,
         ...state.busket.map(product => ({ ...product }))
       ];
-
       state.busket = [];
-    },
+    }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.list = action.payload;
@@ -83,5 +92,5 @@ const usersSlice = createSlice({
   }
 });
 
-export const { clearError, setCurentUser, logoutUser, pushBusket, removeFromBusketByIndex, updateProductQuantity, restartBusket, pushProductsPurchased } = usersSlice.actions;
+export const {clearError,setCurentUser,logoutUser,setUsersData, pushBusket,removeFromBusketByIndex,updateProductQuantity,restartBusket,pushProductsPurchased} = usersSlice.actions;
 export default usersSlice.reducer;

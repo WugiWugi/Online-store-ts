@@ -44,7 +44,7 @@ function Header() {
                             </div>}
                             <img src={busketImg} alt="busket img" className='header__basket' />
                         </Link>
-                        <Link className="header__profile-btn">
+                        <Link  to={"/AccountPages"} className="header__profile-btn">
                             <img src={profile} alt="profile img" className="header__profile" />
                         </Link>
                     </div>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { pushProductsPurchased} from '../features/users/usersSlice';
+import { pushProductsPurchased } from '../features/users/usersSlice';
 import { PaymentFormHeader } from './payment-pages-components/Payment-form-header'
 import { PaymentFormFooter } from './payment-pages-components/Payment-form-footer'
 import { PaymentUserData } from './payment-pages-components/Payment-form-user-data'

@@ -1,0 +1,223 @@
+.account {
+    display: flex;
+    margin-top: 30px;
+}
+
+.account__information-title,
+.account__orders-title {
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.185);
+    font-size: 1.5em;
+}
+
+.account__information-container {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-10px);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+}
+
+.account__information-edit {
+    background: none;
+    border: none;
+    margin-left: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.account__information-data-container {
+    display: flex;
+    gap: 15px;
+}
+
+.account__information-data-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.account__information-data-userName {
+    font-size: 1.8em;
+    width: 200px;
+    word-break: break-word;
+}
+
+.account__information-data-userNumber,
+.account__information-data-userEmail {
+    font-size: 1.5em;
+
+    width: 190px;
+}
+
+.account__information-adress-container {
+    margin-top: 15px;
+}
+
+.account__information-adress-text {
+    font-size: 1.2em;
+}
+
+.account__information-adress {
+    background-color: var(--color-green);
+    padding: 10px;
+    font-size: 1.5em;
+    line-height: 1.9;
+    margin-top: 10px;
+    color: var(--color-white);
+    font-weight: 500;
+    border-radius: var(--border-radius-10px);
+    word-break: break-word;
+}
+
+.account__orders {
+    margin-left: auto;
+}
+
+.account__orders-container {
+    height: 700px;
+    overflow-y: auto;
+    border-radius: var(--border-radius-10px);
+    background-color: var(--color-white);
+    width: 830px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.account__orders-product-container {
+    display: flex;
+}
+
+.account__orders-product-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.account__orders-product-name {
+    font-size: 1.5em;
+}
+
+.account__orders-product-articul {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.329);
+}
+
+.account__orders-product-price {
+    margin-top: auto;
+    font-size: 1.8em;
+    font-weight: 600;
+
+}
+
+.account__orders-product-status-container {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.account__orders-product-status-text {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.397);
+}
+
+.account__orders-product-price-text {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.445);
+}
+
+.account__orders-product-status {
+    padding: 10px 20px;
+    border-radius: var(--border-radius-10px);
+    background-color: var(--color-green);
+    margin-top: 10px;
+    color: var(--color-white);
+    font-size: 1.5em;
+}
+
+.edit__bacground {
+    width: 1905px;
+    height: 1360px;
+    position: absolute;
+    background-color: rgba(0, 128, 0, 0.479);
+    z-index: 2;
+    top: 0%;
+    left: 0%;
+}
+
+.edit__container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30%;
+    right: 32%;
+    padding: 45px;
+    width: 500px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-10px);
+}
+
+.edit__header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit__title {
+    font-size: 2em;
+    margin-top: 5px;
+}
+
+.edit__exit-btn {
+    background: none;
+    border: none;
+    font-size: 3em;
+    cursor: pointer;
+    color: var(--color-green);
+}
+
+.edit__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit__input {
+    padding: 15px 10px;
+    border-radius: var(--border-radius-10px);
+    border: 1px solid rgba(0, 0, 0, 0.212);
+    background-color: rgba(0, 0, 0, 0.021);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit__save-btn {
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 15px 80px;
+    border: none;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border-radius: var(--border-radius-10px);
+    cursor: pointer;
+}
+
+
+.edit__form-input-container {
+    height: 68px;
+}
+
+.edit-input-error {
+    margin-top: 5px;
+    text-align: end;
+    color: red;
+    font-size: 1.4em;
+}

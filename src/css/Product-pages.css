@@ -2,6 +2,7 @@
     display: flex;
     gap: 50px;
     width: 100%;
+    margin-top: 30px;
 }
 
 .product-pages__img {
