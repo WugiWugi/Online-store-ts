@@ -1,20 +1,38 @@
-const API = import.meta.env.VITE_API_URL || process.env.REACT_APP_API_URL || 'https://online-strore-production.up.railway.app';
+// Всё, что связано с сервером, удалено по запросу пользователя.
+// Здесь можно реализовать работу с localStorage или оставить пустым.
 
+// Получить пользователей из localStorage
 export async function fetchUsersAPI() {
-  const res = await fetch(`${API}/users`);
-  if (!res.ok) throw new Error('Ошибка загрузки пользователей');
-  return await res.json();
+  const serializedState = localStorage.getItem('appState');
+  if (!serializedState) return [];
+  try {
+    const parsed = JSON.parse(serializedState);
+    return parsed?.users?.list || [];
+  } catch {
+    return [];
+  }
 }
 
+// Зарегистрировать пользователя в localStorage
 export async function registerUserAPI(number, password) {
-  const res = await fetch(`${API}/register`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ number, password }),
-  });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.message || 'Ошибка регистрации');
+  const serializedState = localStorage.getItem('appState');
+  let users = [];
+  if (serializedState) {
+    try {
+      const parsed = JSON.parse(serializedState);
+      users = parsed?.users?.list || [];
+    } catch {}
   }
-  return { number, password };
+  // Проверка на существование пользователя
+  if (users.find(u => u.number === number)) {
+    throw new Error('Пользователь уже существует');
+  }
+  const newUser = { number, password };
+  users.push(newUser);
+  // Сохраняем обратно
+  const newState = serializedState ? JSON.parse(serializedState) : { users: {} };
+  newState.users = newState.users || {};
+  newState.users.list = users;
+  localStorage.setItem('appState', JSON.stringify(newState));
+  return newUser;
 }
