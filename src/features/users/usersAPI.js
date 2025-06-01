@@ -1,4 +1,4 @@
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const API = import.meta.env.VITE_API_URL || process.env.REACT_APP_API_URL || 'https://online-strore-production.up.railway.app';
 
 export async function fetchUsersAPI() {
   const res = await fetch(`${API}/users`);
