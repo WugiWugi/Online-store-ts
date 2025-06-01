@@ -11,6 +11,7 @@ function AccountPages() {
     const dispatch = useDispatch();
     const usersData = useSelector(state => state.users.usersData);
     const [editActive, setActiveEdit] = useState(false)
+    const userNumber = useSelector(state => state.users.currentUser.number)
     const [userData, setUserData] = useState({
         userName: '',
         userEmail: '',
@@ -30,12 +31,12 @@ function AccountPages() {
             [name]: value
         }))
     }
-useEffect(() => {
-    if (usersData) {
-        setUserData(usersData);
-        setUserDataChange(usersData);
-    }
-}, [usersData]);
+    useEffect(() => {
+        if (usersData) {
+            setUserData(usersData);
+            setUserDataChange(usersData);
+        }
+    }, [usersData]);
     function onclick(e) {
         e.preventDefault();
         const newErrors = {};
@@ -56,10 +57,12 @@ useEffect(() => {
         dispatch({ type: 'users/setUsersData', payload: userDataChange });
         setActiveEdit(false);
     }
-
+    console.log(products)
     return (
         <div className="main__bacground">
-            <BackElement />
+            <div className="back__container">
+                <BackElement />
+            </div>
             {editActive &&
                 <div className="edit__bacground">
                     <div className="edit__container">
@@ -94,7 +97,7 @@ useEffect(() => {
                             <img src={AccountUsersImg} alt="" className="account__information-img" />
                             <div className="account__information-data-text">
                                 <h4 className="account__information-data-userName">{userData.userName ? userData.userName : 'Ваше имя'}</h4>
-                                <div className="account__information-data-userNumber">8 928 896 09 71</div>
+                                <div className="account__information-data-userNumber">{userNumber}</div>
                                 <div className="account__information-data-userEmail">{userData.userEmail ? userData.userEmail : 'Ваш email'}</div>
                             </div>
                         </div>
@@ -112,9 +115,9 @@ useEffect(() => {
                             <div key={i} className="account__orders-product-container">
                                 <img src={productImg} alt="Product img" />
                                 <div className="account__orders-product-text-container">
-                                    <h3 className="account__orders-product-name">Корм для птиц FIORY Смесь для попугаев 400г</h3>
-                                    <p className="account__orders-product-articul">Артикул: ТООО01632</p>
-                                    <p className="account__orders-product-price"><span className="account__orders-product-price-text">Итого:</span>  228 руб.</p>
+                                    <h3 className="account__orders-product-name">{x.name}</h3>
+                                    <p className="account__orders-product-articul">Артикул: {x.articul}</p>
+                                    <p className="account__orders-product-price"><span className="account__orders-product-price-text">Итого:</span>  {x.price} руб.</p>
                                 </div>
                                 <div className="account__orders-product-status-container">
                                     <p className="account__orders-product-status-text">Статус:</p>

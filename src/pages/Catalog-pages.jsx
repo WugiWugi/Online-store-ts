@@ -2,7 +2,11 @@ import { useState, useEffect, useContext } from "react"
 import { Link, useLocation, useParams } from "react-router-dom"
 import { userContext } from '../App'
 import { BackElement } from './Back-element.jsx'
+import { pushBusket } from '../features/users/usersSlice';
+import { useDispatch } from 'react-redux';
+
 function CatalogPages() {
+    const dispatch = useDispatch();
     const data = useContext(userContext)
     const { catalogPagesName } = useParams()
     const items = data[catalogPagesName][0] || []
@@ -14,6 +18,27 @@ function CatalogPages() {
         updated[cardIndex] = btnIndex;
         setActiveButtons(updated);
     };
+
+    function pushDataOfBusket(price, cardIndex) {
+        const allowedPaths = [
+            "/catalogPages/readyMixes",
+            "/catalogPages/typesFeed",
+            "/catalogPages/readyKits"
+        ];
+        if (!allowedPaths.includes(location.pathname)) return;
+
+        return {
+            name: items.nameProductPages,
+            articul: items.articul,
+            description: items.description,
+            weight: items.weight[activeButtons[cardIndex]],
+            initialСost: items.price,
+            price: price,
+            alt: items.alt
+        }
+    }
+
+    console.log(location)
     useEffect(() => {
         setActiveButtons(cards.map(() => 0))
     }, [location.pathname])
@@ -47,8 +72,8 @@ function CatalogPages() {
                                 )
                             })}
                             <div className="product__btn-container">
-                                <button className="product__details-btn">Подробнее</button>
-                                <button className="product__add-cart-btn">
+                                <Link to={location.pathname === "/catalogPages/readyMixes" ? "/productPages/readyMixes" : location.pathname} className="product__details-btn">Подробнее</Link>
+                                <button onClick={() => { dispatch(pushBusket(pushDataOfBusket(price, cardIndex))) }} className="product__add-cart-btn">
                                     <img src={items.basket} alt="basket" className="product__busket-img" />
                                 </button>
                             </div>

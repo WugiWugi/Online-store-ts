@@ -1,6 +1,11 @@
 .account {
     display: flex;
     margin-top: 30px;
+    gap: 40px;
+}
+
+.back__container {
+    width: 69%;
 }
 
 .account__information-title,
@@ -142,21 +147,20 @@
 }
 
 .edit__bacground {
-    width: 1905px;
+    width: 100vw;
     height: 1360px;
     position: absolute;
     background-color: rgba(0, 128, 0, 0.479);
     z-index: 2;
     top: 0%;
     left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit__container {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 30%;
-    right: 32%;
+    position: static;
     padding: 45px;
     width: 500px;
     background-color: var(--color-white);
@@ -220,4 +224,86 @@
     text-align: end;
     color: red;
     font-size: 1.4em;
+}
+
+
+
+
+@media(max-width: 1331px) {
+    .account {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .edit__bacground {
+        width: 100vw;
+        height: 1700px;
+        position: absolute;
+        background-color: rgba(0, 128, 0, 0.479);
+        z-index: 2;
+        top: 0%;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .edit__container {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        top: 0%;
+        right: 0%;
+
+        padding: 45px;
+        width: 500px;
+        background-color: var(--color-white);
+        border-radius: var(--border-radius-10px);
+    }
+}
+
+@media(max-width: 855px) {
+    .account__orders-container {
+        height: 700px;
+        overflow-y: auto;
+        border-radius: var(--border-radius-10px);
+        background-color: var(--color-white);
+        width: 700px;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+
+@media(max-width: 840px) {
+    .edit__bacground {
+        width: 100vw;
+        height: 1750px;
+        position: absolute;
+        background-color: rgba(0, 128, 0, 0.479);
+        z-index: 2;
+        top: 0%;
+        left: 0%;
+    }
+
+}
+
+@media(max-width: 721px) {
+    .account__orders-container {
+        height: 700px;
+        overflow-y: auto;
+        border-radius: var(--border-radius-10px);
+        background-color: var(--color-white);
+        width: 450px;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
 }

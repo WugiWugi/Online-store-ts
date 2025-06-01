@@ -61,8 +61,8 @@ function Header() {
                                     <li className="Link header__catalog-list-item"><Link to={"/catalogPages/readyKits"} className='header__catalog-list-item-link'>Готовые комплекты</Link></li>
                                     <li className="Link header__catalog-list-item"><Link to={"/catalogPages/accessoriesAndMore"} className='header__catalog-list-item-link'>Аксессуары и другое</Link></li></ul>}
                             </li>
-                            <li className="header__list-item"><Link className='header__list-item-btn'>О проекте</Link></li>
-                            <li className="header__list-item"><Link to='/birds' className='header__list-item-btn'>Птицы</Link></li>
+                            <li className="header__list-item"><Link to={"/about"} className='header__list-item-btn'>О проекте</Link></li>
+                            <li className="header__list-item"><Link to={"/productPages/sparrowPages"} className='header__list-item-btn'>Птицы</Link></li>
                             <li className="header__list-item"><Link className='header__list-item-btn'>Пожертвования</Link></li>
                         </ul>
                     </nav>

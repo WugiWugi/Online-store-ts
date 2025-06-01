@@ -200,3 +200,41 @@
     font-size: 3em;
     padding: 80px 0px;
 }
+
+
+
+@media(max-width: 699px) {
+    .payment-form__container {
+        background-color: var(--color-white);
+        padding: 40px;
+        border-radius: var(--border-radius-10px);
+        width: 450px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+}
+
+
+@media(max-width: 607px) {
+.payment__ready {
+    width: 400px;
+
+}
+}
+
+@media(max-width: 561px) {
+    .payment-form__container {
+        background-color: var(--color-white);
+        padding: 40px;
+        border-radius: var(--border-radius-10px);
+        width: 300px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+}

@@ -9,7 +9,7 @@ function Feeders() {
         <div className="product__bird-species">
             <div className="products__about-products-container">
                 <h2 className="products__title">{data.nameProducts}</h2>
-                <button className="products__more">Eщё</button>
+                <Link to={"/catalogPages/feeders"} className="products__more">Eщё</Link>
             </div>
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => (

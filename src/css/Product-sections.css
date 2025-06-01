@@ -1,27 +1,41 @@
 .main__bacground {
     background-color: #f0f0f0;
-    width: 100%;
-    padding: 50px 300px 200px 300px;
+    width: 100vw;
+    padding: 50px 0px 200px 0px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
 
 }
+
+.back-element-container {}
 
 .main__bacground-- {
     padding: 70px 300px 150px 300px;
 }
 
 .catalog {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
 }
 
 .catalog__title {
+    margin-right: center;
     margin-bottom: 20px;
     font-weight: var(--light-weight);
 }
 
+.catalog__inner-img {
+    width: 385px;
+}
+
 .catalog__content-container {
     display: flex;
-    justify-content: space-between;
+    gap: 50px;
 }
 
 .catalog__inner-container {
@@ -57,7 +71,6 @@
     cursor: pointer;
     font-size: 1.5em;
     text-decoration: none;
-
 }
 
 .catalog__inner-btn-- {
@@ -85,11 +98,14 @@
     border: none;
     color: rgb(32, 187, 32);
     cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5em;
 }
 
 .products__content-container {
     display: flex;
     justify-content: space-between;
+    gap: 47px;
 }
 
 .product__container {
@@ -259,6 +275,227 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 45px;
     row-gap: 40px;
+}
+
+
+
+@media (max-width: 1700px) {
+    .catalog__content-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .product__img {
+        border-radius: var(--border-radius-10px);
+    }
+
+    .products__content-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+}
+
+
+@media(max-width: 1487px) {
+    .charity {
+        padding: 80px 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .charity__title {
+        font-size: 3.2em;
+        color: var(--color-white);
+        margin-bottom: 50px;
+    }
+
+    .charity__form-checkbox-container {
+        justify-content: center;
+    }
+
+    .charity__form-filling-container {
+        justify-content: center;
+    }
+
+    .charity__form-filling::placeholder {
+        color: rgba(255, 255, 255, 0.76);
+    }
+
+    .charity__img-container {
+        display: none;
+    }
+}
+
+
+@media(max-width: 1331px) {
+    .products-pages__product-content-container {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 45px;
+        row-gap: 40px;
+    }
+}
+
+@media(max-width: 1255px) {
+
+        .products-pages__product-content-container {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 45px;
+        row-gap: 40px;
+    }
+    .product__img {
+        border-radius: var(--border-radius-10px);
+    }
+
+    .catalog__inner-img {
+        width: 265px;
+    }
+
+    .products__content-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .product__img {
+        border-radius: var(--border-radius-10px);
+        width: 600px;
+    }
+
+    .products {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .products__title {
+        font-weight: var(--light-weight);
+    }
+
+    .products__more {
+        border: none;
+        color: rgb(32, 187, 32);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.5em;
+    }
+
+    .products__content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .product__title {
+        margin: 10px 0px 0px 0px;
+        font-size: 3em;
+        text-align: center;
+        font-weight: 800;
+    }
+
+    .product__description {
+        font-size: 2em;
+        color: rgba(0, 0, 0, 0.527);
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .product__price {
+        font-size: 4em;
+        text-align: center;
+        font-weight: 600;
+        margin: 25px 0px;
+    }
+
+
+    .product__weight-btn,
+    .product-pages__weight-btn {
+        padding: 10px 50px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 128, 0, 0);
+        cursor: pointer;
+    }
+
+    .product__details-btn {
+        padding: 14px 200px;
+        display: flex;
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 1231px) {
+    .catalog__inner-img {
+        width: 315px;
+    }
+}
+
+@media (max-width: 1081px) {
+    .catalog__content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .catalog__inner-img {
+        width: 600px;
+    }
+
+
+}
+
+@media(max-width: 631px) {
+
+    .catalog__inner-img,
+    .product__img {
+        width: 300px;
+    }
+
+    .product__weight-btn,
+    .product-pages__weight-btn {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 128, 0, 0);
+        cursor: pointer;
+    }
+
+    .product__container {
+        background-color: #F2F2F2;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius-10px);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product__btn-container {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0px;
+    }
+
+    .product__details-btn {
+        padding: 14px 50px;
+        display: flex;
+        font-size: 1.5em;
+    }
+}
+
+
+@media(max-width: 609px) {
+    .charity__title {
+        font-size: 2.5em;
+        color: var(--color-white);
+        margin-bottom: 50px;
+
+    }
+
 }

@@ -1,6 +1,6 @@
 .header__bacground {
     background-color: #e7e5e5a4;
-    width: 1920px;
+    width: 100vw;
     height: 100%;
     display: flex;
     justify-content: center;

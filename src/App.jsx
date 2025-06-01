@@ -6,6 +6,7 @@ import { Header } from './pages/Header.jsx'
 import { RegistrationForm } from './pages/Registration-form.jsx'
 import { Footer } from './pages/Footer.jsx'
 import { Busket } from './pages/Busket.jsx'
+import { About } from './pages/About.jsx'
 import { ProductSections } from './pages/Product-sections.jsx'
 import { CatalogPages } from './pages/Catalog-pages.jsx'
 import { ProductPages } from './pages/Product-pages.jsx'
@@ -50,6 +51,7 @@ function App() {
           <Routes>
             <Route path='/registration' element={<RegistrationForm />} />
             <Route path='/' element={<ProductSections />} />
+            <Route path="/about" element={<About />} />
             <Route path="/catalogPages/:catalogPagesName" element={<CatalogPages />} />
             <Route path="/productPages/:productPagesName" element={<ProductPages />} />
             <Route path="/busket" element={<Busket />} />

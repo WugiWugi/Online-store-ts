@@ -1,8 +1,11 @@
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { userContext } from '../../App'
+import { pushBusket } from '../../features/users/usersSlice';
 
 function Grains() {
+    const dispatch = useDispatch();
     const cards = [1, 2, 3, 4];
     const data = useContext(userContext).typesFeed[0]
     const [activeButtons, setActiveButtons] = useState(cards.map(() => 0));
@@ -11,6 +14,17 @@ function Grains() {
         updated[cardIndex] = btnIndex;
         setActiveButtons(updated);
     };
+    function pushDataOfBusket(price, cardIndex) {
+        return {
+            name: data.nameProductPages,
+            articul: data.articul,
+            description: data.description,
+            weight: data.weight[activeButtons[cardIndex]],
+            initialСost: data.price,
+            price: price,
+            alt: data.alt
+        }
+    }
     return (
         <div className="products__content-container">
             {cards.map((_, cardIndex) => {
@@ -38,7 +52,7 @@ function Grains() {
 
                     <div className="product__btn-container">
                         <Link className="product__details-btn">Подробнее</Link>
-                        <button className="product__add-cart-btn">
+                        <button onClick={() => { dispatch(pushBusket(pushDataOfBusket(price, cardIndex))) }} className="product__add-cart-btn">
                             <img src={data.basket} alt="basket" className="product__busket-img" />
                         </button>
                     </div>

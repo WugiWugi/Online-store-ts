@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { pushBusket, restartBusket } from '../../features/users/usersSlice';
-import { useState, useContext, useEffect } from 'react'
+import { pushBusket } from '../../features/users/usersSlice';
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { userContext } from '../../App'
 
@@ -29,7 +29,7 @@ function ReadyMixes() {
         <div className="product__ready-mixes">
             <div className="products__about-products-container">
                 <h2 className="products__title">{data.nameProducts}</h2>
-                <button className="products__more">Eщё</button>
+                <Link to={"/catalogPages/readyMixes"} className="products__more">Eщё</Link>
             </div>
             <div className="products__content-container">
                 {cards.map((_, cardIndex) => {

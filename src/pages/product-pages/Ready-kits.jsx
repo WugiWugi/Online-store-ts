@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react'
-import GrainJpg from '../../assets/main-img/Grains/grain.jpg'
-import basket from "../../assets/elements-icon/header-elements/basket.svg"
 import { userContext } from '../../App'
+import { useDispatch } from 'react-redux';
+import { pushBusket } from '../../features/users/usersSlice';
+import { Link } from 'react-router-dom';
 
 function ReadyKits() {
+    const dispatch = useDispatch();
     const data = useContext(userContext).readyKits[0]
     const cards = [1, 2, 3, 4];
     const [activeButtons, setActiveButtons] = useState(cards.map(() => 0));
@@ -12,6 +14,17 @@ function ReadyKits() {
         updated[cardIndex] = btnIndex;
         setActiveButtons(updated);
     };
+    function pushDataOfBusket(price, cardIndex) {
+        return {
+            name: data.nameProductPages,
+            articul: data.articul,
+            description: data.description,
+            weight: data.weight[activeButtons[cardIndex]],
+            initialСost: data.price,
+            price: price,
+            alt: data.alt
+        }
+    }
     return (
         <div className="products__content-container">
 
@@ -38,9 +51,9 @@ function ReadyKits() {
                     </div>
 
                     <div className="product__btn-container">
-                        <button className="product__details-btn">Подробнее</button>
-                        <button className="product__add-cart-btn">
-                            <img src={basket} alt="basket" className="product__busket-img" />
+                        <Link className="product__details-btn">Подробнее</Link>
+                        <button onClick={() => { dispatch(pushBusket(pushDataOfBusket(price, cardIndex)))}} className="product__add-cart-btn">
+                            <img src={data.basket} alt="basket" className="product__busket-img" />
                         </button>
                     </div>
                 </div>

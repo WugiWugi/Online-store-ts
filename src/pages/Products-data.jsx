@@ -23,10 +23,12 @@ const birds = [[pigeon, 'Голубь'], [sparrow, 'Воробей'], [martin, '
 const feed = [[millet, 'Пшено'], [milletTwo, 'Просо'], [flax, 'Лен'], [wheat, 'Пшеница']]
 const mixes = [[clifi, <>clifi<br />(Италия)</>], [Benelux, <>Benelux<br />(корма)</>], [cliffiItalian, <>clifi<br />(Италия)</>], [BeneluxKarma, <>Benelux<br />(корма)</>]]
 export const data = {
+
   readyMixes: [{
     nameProducts: 'Готовые миксы',
     nameProductPages: "PADOVAN OVOMIX OLD ROSSO",
-    src: readyMixJpg, alt: 'ready mixes img',
+    src: readyMixJpg,
+    alt: 'ready mixes img',
     productPagesSrc: ovomix,
     nameProduct: (<>PADOVAN OVOMIX<br />GOLD ROSSO</>),
     description: 'Корм для птиц',
@@ -45,10 +47,57 @@ export const data = {
     additionalInformationSrcWan: birds,
     additionalInformationSrcTwo: feed,
   }],
-  typesFeed: [{ nameProducts: 'Отдельные виды кормов', src: grainJpg, alt: 'types of feed img', nameProduct: (<>Корм для птиц RIO<br />Линька</>), description: 'для волнистых попугайчиков', price: 228, weight: weight, basket: basket }],
-  feeders: [{ nameProducts: 'Кормушки', src: feedersJpg, alt: 'feeders img', nameProduct: (<>Комплект-агро<br />"Избушка на курьих<br />ножках"</>), description: 'Кормушка малая', price: 1000, weight: weight, basket: basket }],
-  readyKits: [{ nameProducts: 'Готовые комплекты', src: readyKitsJpg, alt: 'ready kits img', nameProduct: (<>Корм для птиц RIO<br />Линька</>), description: 'для волнистых попугайчиков', price: 300, weight: weight, basket: basket }],
-  accessoriesAndMore: [{ nameProducts: 'Аксессуары и другое', src: accessoriesJpg, alt: 'aaccessories img', nameProduct: (<>Домик для птиц TRIOL<br />из кокоса</>), description: 'кормушка малая', price: 1000, weight: weight, basket: basket }],
+
+  typesFeed: [{
+    nameProducts: 'Отдельные виды кормов',
+    src: grainJpg,
+    alt: 'types of feed img',
+    nameProductPages: 'Корм для птиц RIO Линька',
+    nameProduct: (<>Корм для птиц RIO<br />Линька</>),
+    description: 'для волнистых попугайчиков',
+    articul: 'Т00001476',
+    price: 228,
+    weight: weight,
+    basket: basket
+  }],
+
+  feeders: [{
+    nameProducts: 'Кормушки',
+    src: feedersJpg,
+    alt: 'feeders img',
+    nameProduct: (<>Комплект-агро<br />"Избушка на курьих<br />ножках"</>),
+    description: 'Кормушка малая',
+    articul: 'Т00001354',
+    price: 1000,
+    weight: weight,
+    basket: basket
+  }],
+
+  readyKits: [{
+    nameProducts: 'Готовые комплекты',
+    src: readyKitsJpg,
+    alt: 'ready kits img',
+    nameProductPages: 'Корм для птиц RIO Линька',
+    nameProduct: (<>Корм для птиц RIO<br />Линька</>),
+    description: 'для волнистых попугайчиков',
+    articul: 'Т00001434',
+    price: 300,
+    weight: weight,
+    basket: basket
+  }],
+
+  accessoriesAndMore: [{
+    nameProducts: 'Аксессуары и другое',
+    src: accessoriesJpg,
+    alt: 'aaccessories img',
+    nameProduct: (<>Домик для птиц TRIOL<br />из кокоса</>),
+    description: 'кормушка малая',
+    articul: 'Т00001434',
+    price: 1000,
+    weight: weight,
+    basket: basket
+  }],
+
   sparrowPages: [{
     nameProducts: 'Готовые миксы',
     nameProductPages: 'Домовый воробей',

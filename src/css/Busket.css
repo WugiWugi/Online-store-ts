@@ -8,6 +8,7 @@
     border-top-left-radius: var(--border-radius-10px);
     border-top-right-radius: var(--border-radius-10px);
     height: 1000px;
+    width: 66vw;
     overflow-y: auto;
     padding: 25px;
     display: flex;
@@ -75,4 +76,54 @@
     font-size: 1.4em;
     border-radius: var(--border-radius-10px);
     text-decoration: none;
+}
+
+@media(max-width: 881px) {
+    .busket__product-title-container {
+        font-size: 1.2em;
+    }
+
+    .busket__product-information-price,
+    .busket__product-price {
+        font-size: 1.2em;
+    }
+
+
+    .busket__product-price-container {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .busket__buy-container {
+        position: sticky;
+        bottom: -30px;
+        background-color: var(--color-white);
+        padding: 30px;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom-left-radius: var(--border-radius-10px);
+        border-bottom-right-radius: var(--border-radius-10px);
+    }
+
+    .busket__product-price-container {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    .product-pages__add-button-container {
+        margin-bottom: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .busket__product-price {
+        font-size: 1.2em;
+        margin-top: 20px;
+    }
 }
