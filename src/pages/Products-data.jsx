@@ -1,6 +1,6 @@
 import readyMixJpg from '../assets/main-img/ready-mixes/ready-mix.jpg'
 import grainJpg from '../assets/main-img/Grains/grain.jpg'
-import feedersJpg from '../assets/main-img/feeders/Feeder.jpg'
+import feedersJpg from '../assets/main-img/feeders/feeder.jpg'
 import readyKitsJpg from "../assets/main-img/catalog-pages/ready-kits.jpg"
 import accessoriesJpg from "../assets/main-img/catalog-pages/accessories.jpg"
 import sparrowPagesImg from "../assets/main-img/product-pages/sparrowPagesImg.jpg"
