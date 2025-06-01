@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 export async function fetchUsersAPI() {
   const res = await fetch(`${API}/users`);
@@ -18,4 +18,3 @@ export async function registerUserAPI(number, password) {
   }
   return { number, password };
 }
-
