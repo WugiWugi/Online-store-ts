@@ -1,7 +1,7 @@
 import { BackElement } from './Back-element.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import AccountUsersImg from '../assets/Account/AccountUsersImg.png'
-import editImg from '../assets/Account/edit.png'
+import editImg from '../assets/Account/Edit.png'
 import productImg from "../assets/busket-img/busket-img.svg";
 import "../css/Account.css"
 import { useState, useEffect } from 'react';
