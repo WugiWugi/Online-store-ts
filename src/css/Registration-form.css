@@ -59,6 +59,10 @@
     cursor: pointer;
 }
 
+.registration-form__sign-in {
+    color: black;
+}
+
 .registration-form__active {
     background-color: var(--color-green);
     color: var(--color-white);

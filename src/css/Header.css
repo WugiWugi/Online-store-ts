@@ -99,7 +99,7 @@
 .item-action {
     color: var(--color-green);
 }
-
+ 
 .item-down-arrow-action {
     transform: rotate(180deg);
     box-sizing: border-box;
